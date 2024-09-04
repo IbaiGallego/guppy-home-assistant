@@ -34,3 +34,6 @@ Wind Speed: {wind_speed} m/s
         message = f"Failed to get weather response Status Code: {response.status_code}"
 
     return message
+
+if __name__=='__main__':
+    print(get_weather("Madrid"))
