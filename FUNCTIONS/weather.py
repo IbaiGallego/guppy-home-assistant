@@ -35,5 +35,22 @@ Wind Speed: {wind_speed} m/s
 
     return message
 
+def will_it_rain(lat = 40.4297, lon = -3.6452):
+    url = f"http://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={api_key}"
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        # Parse the JSON response
+        data = response.json()
+
+        rain = False
+
+        for i in range(8):
+            if data["list"][i]["weather"][0]["main"] == "Rain":
+                rain = True
+                return rain
+            
+        return rain
+
 if __name__=='__main__':
-    print(get_weather("Madrid"))
+    print(will_it_rain())
