@@ -189,12 +189,14 @@ def check_for_rain():
   response_message = ""
   if weather.will_it_rain():
     response_message = "Good Day Cap. It will rain today, no need to water your plants. Dont forget your umbrella."
-    send_telegram_message()
+    send_telegram_message(response_message)
   else:
     response_message = "No Rain Today Captain. Did you remember to water the plants?"
+    send_telegram_message(response_message)
 
 def did_you_wash_clothes():
   response_message = "Good day Cap. Did you wash your clothes this week? I have a feeling you are getting somewhat stinky."
+  send_telegram_message(response_message)
 
 schedule.every().day.at("09:00").do(check_for_rain)
 schedule.every().day.at("22:00").do(get_nasa_pic_of_day)

@@ -13,7 +13,7 @@ def get_nasa_picture_of_day():
     # Send the request to the API
     response = requests.get(url)
 
-    return response.json()["hdurl"], response.json()["explanation"]
+    return response.json()["url"], response.json()["explanation"]
 
 
 if __name__=="__main__":
